@@ -2,6 +2,8 @@ import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  Dropdown
 import { Avatar } from "@nextui-org/avatar";
 import {User} from "@nextui-org/user";
 import {Link} from "@nextui-org/link";
+import { ThemeSwitcher } from "./ThemeSwitcher";
+import { UserCircleIcon, ClipboardIcon, BookmarkIcon, ArrowRightOnRectangleIcon, MoonIcon, Cog6ToothIcon } from "@heroicons/react/24/outline";
 
 const UserDropdown = () => {
   return (
@@ -31,14 +33,49 @@ const UserDropdown = () => {
           </DropdownItem>
         </DropdownSection>
         <DropdownSection showDivider>
-          <DropdownItem key="account">My Account</DropdownItem>
-          <DropdownItem key="team_settings">Team Settings</DropdownItem>
-          <DropdownItem key="analytics">Analytics</DropdownItem>
+          <DropdownItem
+            key="account"
+            startContent={<UserCircleIcon className="h-6 w-6" />}
+          >
+            My Account
+          </DropdownItem>
+          <DropdownItem
+            key="team_settings"
+            startContent={<ClipboardIcon className="h-6 w-6" />}
+          >
+            My Posts
+          </DropdownItem>
+          <DropdownItem
+            key="analytics"
+            startContent={<BookmarkIcon className="h-6 w-6" />}
+          >
+            Saved
+          </DropdownItem>
         </DropdownSection>
         <DropdownSection>
-          <DropdownItem key="system">System</DropdownItem>
-          <DropdownItem key="configurations">Configurations</DropdownItem>
-          <DropdownItem key="logout" color="danger">Log Out</DropdownItem>
+          <DropdownItem
+            key="system"
+            closeOnSelect={false}
+            startContent={<Cog6ToothIcon className="h-6 w-6" />}
+          >
+            System
+          </DropdownItem>
+          <DropdownItem
+            key="configurations"
+            endContent={<ThemeSwitcher />}
+            closeOnSelect={false}
+            startContent={<MoonIcon className="h-6 w-6" />}
+          >
+            Dark mode
+          </DropdownItem>
+          <DropdownItem
+            key="logout"
+            color="danger"
+            className="text-danger"
+            startContent={<ArrowRightOnRectangleIcon className="h-6 w-6" />}
+          >
+            Log Out
+          </DropdownItem>
         </DropdownSection>
       </DropdownMenu>
     </Dropdown>

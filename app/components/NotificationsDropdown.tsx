@@ -1,9 +1,8 @@
 import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  DropdownItem} from "@nextui-org/dropdown";
-import { Avatar } from "@nextui-org/avatar";
 import {Badge} from "@nextui-org/badge";
 import {User} from "@nextui-org/user";
-import {Link} from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
+import { BellIcon } from "@heroicons/react/24/outline";
 
 import { NotificationIcon } from "./icons";
 
@@ -13,7 +12,8 @@ const NotificationsDropdown = () => {
       <DropdownTrigger>
         <Button isIconOnly radius="full" size="lg" variant="light">
           <Badge content="" color="primary" shape="circle" size="sm">
-            <NotificationIcon className="fill-current" size={30} />
+            <BellIcon className="h-6 w-6" />
+            {/* <NotificationIcon className="fill-current" size={30} /> */}
           </Badge>
         </Button>  
       </DropdownTrigger>

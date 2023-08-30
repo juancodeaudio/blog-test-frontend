@@ -9,25 +9,30 @@ import NotificationsDropdown from "./NotificationsDropdown";
 
 const Navbar = () => {
   return (
-    <NextUINavbar maxWidth="xl" height='80px'>
+    <NextUINavbar maxWidth="xl" height='80px' className="z-[9999]">
       <NavbarBrand>
         {/* <AcmeLogo /> */}
         <p className="font-bold text-inherit">ACME</p>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-12" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="/">
+          <Link href="/">
             Home
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
+        <NavbarItem>
+          <Link href="/about">
+            About
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
+          <Link href="/categories">
+            Categories
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="/contact">
+            Contact us
           </Link>
         </NavbarItem>
       </NavbarContent>
