@@ -28,28 +28,28 @@ const authors = [
     background: 'image3.jpg'
   },
   {
-    name: 'Truelock Alric',
+    name: 'Falconar Agnes',
     user: '@truelockauthor',
     articles: 55,
     photo: 'https://i.pravatar.cc/150?u=a04258a2462d826712d',
     background: 'image1.jpg'
   },
   {
-    name: 'Truelock Alric',
+    name: 'Tousy Vita',
     user: '@truelockauthor',
     articles: 76,
     photo: 'https://i.pravatar.cc/150?u=a042581f4e29026024d',
     background: 'image1.jpg'
   },
   {
-    name: 'Truelock Alric',
+    name: 'Friar Dona',
     user: '@truelockauthor',
     articles: 15,
     photo: 'https://i.pravatar.cc/150?u=a042581f4e29026024d',
     background: 'image1.jpg'
   },
   {
-    name: 'Truelock Alric',
+    name: 'Royal Sergei',
     user: '@truelockauthor',
     articles: 28,
     photo: 'https://i.pravatar.cc/150?u=a042581f4e29026024d',

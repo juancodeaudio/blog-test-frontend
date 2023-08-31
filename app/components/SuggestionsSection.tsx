@@ -66,6 +66,7 @@ const SuggestionsSection = () => {
           <Image
             width={780}
             height={450}
+            className="object-cover"
             isZoomed
             isBlurred
             src={`/images/${suggestedArticles[articleNumber].image}`}
