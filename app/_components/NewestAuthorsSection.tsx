@@ -42,7 +42,7 @@ const NewestAuthorsSection: React.FC<Props> = ({ data }) => {
                     removeWrapper
                     alt="Relaxing app background"
                     className="z-0 w-full h-full object-cover"
-                    src={`http://127.0.0.1:1337${
+                    src={`${
                       attributes.background.data.attributes.formats?.medium.url
                       ? attributes.background.data.attributes.formats?.medium.url
                       : attributes.background.data.attributes.url
@@ -50,7 +50,7 @@ const NewestAuthorsSection: React.FC<Props> = ({ data }) => {
                   />
                   <CardFooter className="absolute flex flex-col bg-background/60 bottom-0 z-10 h-1/2 overflow-visible">
                     <Avatar
-                      src={`http://127.0.0.1:1337${
+                      src={`${
                         attributes.avatar.data.attributes.formats?.small.url
                         ? attributes.avatar.data.attributes.formats?.small.url
                         : attributes.avatar.data.attributes.url

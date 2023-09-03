@@ -38,7 +38,7 @@ const ArticleHeader: React.FC<Props> = ({ data }) => {
               name={data.attributes.author.data.attributes.name}
               description={formatMyDate(data.attributes.createdAt)}
               avatarProps={{
-                src: `http://127.0.0.1:1337${data.attributes.author.data.attributes.avatar.data.attributes.url}`
+                src: `${data.attributes.author.data.attributes.avatar.data.attributes.url}`
               }}
             />
           </Link>
@@ -78,7 +78,7 @@ const ArticleHeader: React.FC<Props> = ({ data }) => {
       </div>
       <div className="w-full max-w-6xl h-[70vh] overflow-hidden rounded-3xl mt-8">
         <Image 
-          src={`http://127.0.0.1:1337${data.attributes.cover.data.attributes.url}`}
+          src={data.attributes.cover.data.attributes.url}
           alt="Article Cover Image"
           width={1200}
           height={500}

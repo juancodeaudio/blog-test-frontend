@@ -5,7 +5,7 @@ export default async function getArticles(q?: object) {
     q, { encodeValuesOnly: true, }
   );
 
-  const response = await fetch(`http://127.0.0.1:1337/api/articles?${query}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles?${query}`, {
     cache: 'no-cache'
   })
 

@@ -5,7 +5,7 @@ export default async function getUser(id: string, q?: object) {
     q, { encodeValuesOnly: true, }
   );
 
-  const response = await fetch(`http://127.0.0.1:1337/api/authors/${id}?${query}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/authors/${id}?${query}`, {
     cache: 'no-cache'
   })
 

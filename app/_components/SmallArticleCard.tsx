@@ -32,11 +32,11 @@ const SmallArticleCard: React.FC<Props> = ({ article, userName, userAvatar }) =>
             alt="Album cover"
             className="object-cover"
             height="full"
-            src={`http://127.0.0.1:1337${
+            src={
               article.attributes.cover.data.attributes.formats.small.url
               ? article.attributes.cover.data.attributes.formats.small.url
               : article.attributes.cover.data.attributes.url
-            }`}
+            }
           />
         </CardHeader>
         <CardBody className="flex flex-col items-start h-full justify-between">
@@ -44,7 +44,7 @@ const SmallArticleCard: React.FC<Props> = ({ article, userName, userAvatar }) =>
             name={userName}
             description={formatMyDate(article.attributes.createdAt)}
             avatarProps={{
-              src: `http://127.0.0.1:1337${userAvatar}`
+              src: `${userAvatar}`
             }}
           />
           <h6 className="font-semibold">{article.attributes.title}</h6>

@@ -6,7 +6,6 @@ import {Switch} from "@nextui-org/switch";
 export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
-  const [isDark, setIsDark] = useState(false)
 
   useEffect(() => {
     setMounted(true)

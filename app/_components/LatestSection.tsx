@@ -66,7 +66,7 @@ const LatestSection: React.FC<Props> = ({ data }) => {
                     className="object-cover rounded-2xl"
                     height="full"
                     width="full"
-                    src={`http://127.0.0.1:1337${data[0].attributes.cover.data.attributes.url}`}
+                    src={data[0].attributes.cover.data.attributes.url}
                   />
                 </div>
               </CardHeader>
@@ -75,7 +75,7 @@ const LatestSection: React.FC<Props> = ({ data }) => {
                     name={data[0].attributes.author.data.attributes.name}
                     description={formatMyDate(data[0].attributes.createdAt)}
                     avatarProps={{
-                      src: `http://127.0.0.1:1337${data[0].attributes.author.data.attributes.avatar.data.attributes.url}`
+                      src: `${data[0].attributes.author.data.attributes.avatar.data.attributes.url}`
                     }}
                   />
                 <h4>{data[0].attributes.title}</h4>
@@ -111,9 +111,9 @@ const LatestSection: React.FC<Props> = ({ data }) => {
             </Card>
           </Link>
           <div className="flex flex-col gap-8">
-            <Link href={`/article/${data[1].id}`} ><ArticleCard data={data[1]} /></Link>
-            <Link href={`/article/${data[2].id}`} ><ArticleCard data={data[2]} /></Link>
-            <Link href={`/article/${data[3].id}`} ><ArticleCard data={data[3]} /></Link>
+            {data[1] && <Link href={`/article/${data[1].id}`} ><ArticleCard data={data[1]} /></Link>}
+            {data[2] && <Link href={`/article/${data[2].id}`} ><ArticleCard data={data[2]} /></Link>}
+            {data[3] && <Link href={`/article/${data[3].id}`} ><ArticleCard data={data[3]} /></Link>}
           </div>
         </div>
       </div>

@@ -61,7 +61,7 @@ const SuggestionsSection: React.FC<Props> = ({ data }) => {
               className="object-cover"
               isZoomed
               isBlurred
-              src={`http://127.0.0.1:1337${
+              src={`${
                 data[articleNumber].attributes.cover.data.attributes.formats?.large?.url
                 ? data[articleNumber].attributes.cover.data.attributes.formats?.large?.url
                 : data[articleNumber].attributes.cover.data.attributes.url
@@ -88,7 +88,7 @@ const SuggestionsSection: React.FC<Props> = ({ data }) => {
                       name={data[articleNumber].attributes.author.data.attributes.name}
                       description={formatMyDate(data[articleNumber].attributes.createdAt)}
                       avatarProps={{
-                        src: `http://127.0.0.1:1337${
+                        src: `${
                           data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
                           ? data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
                           : data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.url

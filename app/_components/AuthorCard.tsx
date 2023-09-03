@@ -14,11 +14,11 @@ const AuthorCard: React.FC<Props> = ({ data }) => {
   return (
     <Card className="absolute left-36 -top-24 h-56 w-3/4 rounded-3xl flex flex-row items-center justify-between p-6">
       <Avatar
-        src={`http://127.0.0.1:1337${
+        src={
           data.attributes.avatar.data.attributes.formats?.small.url
           ? data.attributes.avatar.data.attributes.formats?.small.url
           : data.attributes.avatar.data.attributes.url
-        }`}
+        }
         isBordered
         className="w-32 h-32 text-large"
       />

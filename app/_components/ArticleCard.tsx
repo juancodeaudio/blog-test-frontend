@@ -31,7 +31,7 @@ const ArticleCard: React.FC<Props> = ({ data }) => {
             name={data.attributes.author.data.attributes.name}
             description="May 20, 2021"
             avatarProps={{
-              src: `http://127.0.0.1:1337${data.attributes.author.data.attributes.avatar.data.attributes.url}`
+              src: `${data.attributes.author.data.attributes.avatar.data.attributes.url}`
             }}
           />
           <CardFooter className="flex justify-between p-0">
@@ -71,7 +71,7 @@ const ArticleCard: React.FC<Props> = ({ data }) => {
             className="rounded-md"
             height={300}
             width={300}
-            src={`http://127.0.0.1:1337${data.attributes.cover.data.attributes.url}`}
+            src={data.attributes.cover.data.attributes.url}
           />
 
       </div>
