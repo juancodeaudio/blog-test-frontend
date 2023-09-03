@@ -6,7 +6,11 @@ export default async function getArticles(q?: object) {
   );
 
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles?${query}`, {
-    cache: 'no-cache'
+    cache: 'no-cache',
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+    },
   })
 
   if (!response.ok) {
