@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 h2 {
+  @apply text-5xl;
+  @apply font-semibold
+}
+
+h2 {
   @apply text-4xl;
   @apply font-semibold
 }

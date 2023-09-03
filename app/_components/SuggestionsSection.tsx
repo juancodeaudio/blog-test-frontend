@@ -1,10 +1,12 @@
 'use client'
-import {Image} from "@nextui-org/react";
-import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/card";
+import { useState } from "react";
+
+import {Image} from "@nextui-org/image";
+import {Card, CardBody, CardFooter} from "@nextui-org/card";
 import {Chip} from "@nextui-org/chip";
 import { User } from "@nextui-org/user";
 import { Button } from "@nextui-org/button";
-import { useState } from "react";
+
 import SectionContainer from "./SectionContainer";
 
 import {
@@ -15,43 +17,31 @@ import {
   ArrowSmallLeftIcon,
 } from '@heroicons/react/24/outline'
 
+import {Datum} from "../_types/types"
 
-const suggestedArticles = [
-  {
-    image: 'image1.jpg',
-    title: 'DIYer and TV host Trisha Hershberger’s journey through',
-    author: 'Falconar Agnes',
-    date: 'May 20, 2023',
-    likes: 34,
-    comments: 110
-  },
-  {
-    image: 'image2.jpg',
-    title: 'Lenovo’s smarter devices stoke professional passions',
-    author: 'Foulcher Nathanil',
-    date: 'Jun 13, 2023',
-    likes: 22,
-    comments: 98
-  },
-  {
-    image: 'image3.jpg',
-    title: 'How AI and Teams are benefitting the littlest of patients',
-    author: 'Foulcher Nathanil',
-    date: 'Apr 10, 2023',
-    likes: 22,
-    comments: 98
-  }
-]
+function formatMyDate(value: Date, locale = 'en-US'): string {
+  const LocaleDateString = new Date(value).toLocaleDateString(locale, {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+  return LocaleDateString
+}
 
-const SuggestionsSection = () => {
+type Props = {
+  data: Datum[]
+}
+
+const SuggestionsSection: React.FC<Props> = ({ data }) => {
+  
   const [articleNumber, setArticleNumber] = useState(0)
   function getNextArticle() {
-    if (articleNumber < suggestedArticles.length - 1) setArticleNumber(articleNumber + 1)
+    if (articleNumber < data.length - 1) setArticleNumber(articleNumber + 1)
     else setArticleNumber(0)
   }
   function getLastArticle() {
     if (articleNumber > 0) setArticleNumber(articleNumber - 1)
-    else setArticleNumber(suggestedArticles.length - 1)
+    else setArticleNumber(data.length - 1)
   }
   return (
     <SectionContainer>
@@ -59,7 +49,7 @@ const SuggestionsSection = () => {
         <div className="relative flex flex-col">  
           <h2>Editor’s pick</h2>
           <span className="mt-2 md:mt-3 font-normal block text-base sm:text-xl text-neutral-500 dark:text-neutral-400">
-            Discover the most outstanding articles in all topics of life.
+            Discover the most outstanding data in all topics of life.
           </span>
         </div>
         <div className="relative w-full flex justify-end mt-10">
@@ -69,7 +59,11 @@ const SuggestionsSection = () => {
             className="object-cover"
             isZoomed
             isBlurred
-            src={`/images/${suggestedArticles[articleNumber].image}`}
+            src={`http://127.0.0.1:1337${
+              data[articleNumber].attributes.cover.data.attributes.formats?.large?.url
+              ? data[articleNumber].attributes.cover.data.attributes.formats?.large?.url
+              : data[articleNumber].attributes.cover.data.attributes.url
+            }`}
             alt="NextUI hero Image"
           />
           <div className="absolute top-14 left-0 w-[500px]">
@@ -84,13 +78,17 @@ const SuggestionsSection = () => {
                   base: "h-6",
                   content: "text-xs",
                 }}
-                >Tools</Chip>
-                <h4>{suggestedArticles[articleNumber].title}</h4>
+                >{data[articleNumber].attributes.category.data.attributes.name}</Chip>
+                <h4>{data[articleNumber].attributes.title}</h4>
                 <User   
-                  name={suggestedArticles[articleNumber].author}
-                  description={suggestedArticles[articleNumber].date}
+                  name={data[articleNumber].attributes.author.data.attributes.name}
+                  description={formatMyDate(data[articleNumber].attributes.createdAt)}
                   avatarProps={{
-                    src: "https://avatars.githubusercontent.com/u/30373425?v=4"
+                    src: `http://127.0.0.1:1337${
+                      data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
+                      ? data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
+                      : data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.url
+                    }`
                   }}
                 />
               </CardBody>
@@ -104,7 +102,7 @@ const SuggestionsSection = () => {
                       className="text-foreground hover:text-danger"
                       startContent={<HeartIcon />}
                     >
-                      {suggestedArticles[articleNumber].likes}
+                      {data[articleNumber].attributes.likes}
                     </Button>
                     <Button
                       variant="light"
@@ -114,7 +112,7 @@ const SuggestionsSection = () => {
                       className="text-foreground hover:text-success"
                       startContent={<ChatBubbleLeftEllipsisIcon />}
                     >
-                      {suggestedArticles[articleNumber].comments}
+                      113
                     </Button>
                   </div>
                   <Button isIconOnly radius="full" size="sm" variant="flat">
