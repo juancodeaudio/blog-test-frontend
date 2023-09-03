@@ -1,4 +1,4 @@
-export default async function getUser(id: string, q: object) {
+export default async function getUser(id: string, q?: object) {
 
   const qs = require('qs');
   const query = qs.stringify(

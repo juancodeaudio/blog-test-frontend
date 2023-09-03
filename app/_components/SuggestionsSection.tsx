@@ -6,6 +6,7 @@ import {Card, CardBody, CardFooter} from "@nextui-org/card";
 import {Chip} from "@nextui-org/chip";
 import { User } from "@nextui-org/user";
 import { Button } from "@nextui-org/button";
+import Link from "next/link";
 
 import SectionContainer from "./SectionContainer";
 
@@ -53,73 +54,77 @@ const SuggestionsSection: React.FC<Props> = ({ data }) => {
           </span>
         </div>
         <div className="relative w-full flex justify-end mt-10">
-          <Image
-            width={780}
-            height={450}
-            className="object-cover"
-            isZoomed
-            isBlurred
-            src={`http://127.0.0.1:1337${
-              data[articleNumber].attributes.cover.data.attributes.formats?.large?.url
-              ? data[articleNumber].attributes.cover.data.attributes.formats?.large?.url
-              : data[articleNumber].attributes.cover.data.attributes.url
-            }`}
-            alt="NextUI hero Image"
-          />
-          <div className="absolute top-14 left-0 w-[500px]">
-            <Card
+          <Link href={`/article/${data[articleNumber].id}`}>
+            <Image
+              width={780}
+              height={450}
+              className="object-cover"
+              isZoomed
               isBlurred
-              className="border-none bg-background/40 dark:bg-default-100/40 backdrop-blur-md h-[300px] z-[999] p-8"
-              shadow="md"
-            >
-              <CardBody className="flex flex-col items-start justify-between p-0">
-                <Chip color="danger" variant="flat"
-                classNames={{
-                  base: "h-6",
-                  content: "text-xs",
-                }}
-                >{data[articleNumber].attributes.category.data.attributes.name}</Chip>
-                <h4>{data[articleNumber].attributes.title}</h4>
-                <User   
-                  name={data[articleNumber].attributes.author.data.attributes.name}
-                  description={formatMyDate(data[articleNumber].attributes.createdAt)}
-                  avatarProps={{
-                    src: `http://127.0.0.1:1337${
-                      data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
-                      ? data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
-                      : data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.url
-                    }`
+              src={`http://127.0.0.1:1337${
+                data[articleNumber].attributes.cover.data.attributes.formats?.large?.url
+                ? data[articleNumber].attributes.cover.data.attributes.formats?.large?.url
+                : data[articleNumber].attributes.cover.data.attributes.url
+              }`}
+              alt="NextUI hero Image"
+            />
+          </Link>
+          <div className="absolute top-14 left-0 w-[500px]">
+            <Link href={`/article/${data[articleNumber].id}`}>
+              <Card
+                isBlurred
+                className="border-none bg-background/40 dark:bg-default-100/40 backdrop-blur-md h-[300px] z-[999] p-8"
+                shadow="md"
+              >
+                <CardBody className="flex flex-col items-start justify-between p-0">
+                  <Chip color="danger" variant="flat"
+                  classNames={{
+                    base: "h-6",
+                    content: "text-xs",
                   }}
-                />
-              </CardBody>
-                <CardFooter className="flex justify-between p-0 mt-5">
-                  <div className="flex justify-center gap-4">
-                    <Button
-                      variant="light"
-                      size="sm"
-                      radius="full"
-                      color="danger"
-                      className="text-foreground hover:text-danger"
-                      startContent={<HeartIcon />}
-                    >
-                      {data[articleNumber].attributes.likes}
+                  >{data[articleNumber].attributes.category.data.attributes.name}</Chip>
+                  <h4>{data[articleNumber].attributes.title}</h4>
+                    <User   
+                      name={data[articleNumber].attributes.author.data.attributes.name}
+                      description={formatMyDate(data[articleNumber].attributes.createdAt)}
+                      avatarProps={{
+                        src: `http://127.0.0.1:1337${
+                          data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
+                          ? data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
+                          : data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.url
+                        }`
+                      }}
+                    />
+                </CardBody>
+                  <CardFooter className="flex justify-between p-0 mt-5">
+                    <div className="flex justify-center gap-4">
+                      <Button
+                        variant="light"
+                        size="sm"
+                        radius="full"
+                        color="danger"
+                        className="text-foreground hover:text-danger"
+                        startContent={<HeartIcon />}
+                      >
+                        {data[articleNumber].attributes.likes}
+                      </Button>
+                      <Button
+                        variant="light"
+                        size="sm"
+                        radius="full"
+                        color="success"
+                        className="text-foreground hover:text-success"
+                        startContent={<ChatBubbleLeftEllipsisIcon />}
+                      >
+                        113
+                      </Button>
+                    </div>
+                    <Button isIconOnly radius="full" size="sm" variant="flat">
+                      <BookmarkIcon className="h-5 w-5"/>
                     </Button>
-                    <Button
-                      variant="light"
-                      size="sm"
-                      radius="full"
-                      color="success"
-                      className="text-foreground hover:text-success"
-                      startContent={<ChatBubbleLeftEllipsisIcon />}
-                    >
-                      113
-                    </Button>
-                  </div>
-                  <Button isIconOnly radius="full" size="sm" variant="flat">
-                    <BookmarkIcon className="h-5 w-5"/>
-                  </Button>
-                </CardFooter>
-            </Card>
+                  </CardFooter>
+              </Card>
+            </Link>
             <div className="pt-8 px-10">
               <Button isIconOnly radius="full" variant="bordered" onClick={getLastArticle} className="mr-4">
                 <ArrowSmallLeftIcon className="h-4 w-4" />

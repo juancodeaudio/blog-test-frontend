@@ -54,7 +54,10 @@ const LatestSection: React.FC<Props> = ({ data }) => {
           </Tabs>
         </div>
         <div className="flex w-full gap-8 mt-10">
-          <Link href="/article" className="w-1/2">
+          <Link
+            href={`article/${data[0].id}`}
+            className="w-1/2"
+          >
             <Card className="w-full h-full bg-transparent shadow-none" shadow="none">
               <CardHeader className="p-0 h-1/2">
                 <div className="w-full">
@@ -63,18 +66,18 @@ const LatestSection: React.FC<Props> = ({ data }) => {
                     className="object-cover rounded-2xl"
                     height="full"
                     width="full"
-                    src={`http://127.0.0.1:1337${data[data.length-1].attributes.cover.data.attributes.url}`}
+                    src={`http://127.0.0.1:1337${data[0].attributes.cover.data.attributes.url}`}
                   />
                 </div>
               </CardHeader>
               <CardBody className="flex flex-col items-start gap-4 mt-2">
-                <User   
-                  name={data[0].attributes.author.data.attributes.name}
-                  description={formatMyDate(data[data.length-1].attributes.createdAt)}
-                  avatarProps={{
-                    src: `http://127.0.0.1:1337${data[0].attributes.author.data.attributes.avatar.data.attributes.url}`
-                  }}
-                />
+                  <User   
+                    name={data[0].attributes.author.data.attributes.name}
+                    description={formatMyDate(data[0].attributes.createdAt)}
+                    avatarProps={{
+                      src: `http://127.0.0.1:1337${data[0].attributes.author.data.attributes.avatar.data.attributes.url}`
+                    }}
+                  />
                 <h4>{data[0].attributes.title}</h4>
                 <p>{data[0].attributes.description}</p>
               </CardBody>
@@ -108,9 +111,9 @@ const LatestSection: React.FC<Props> = ({ data }) => {
             </Card>
           </Link>
           <div className="flex flex-col gap-8">
-            <Link href="/article" ><ArticleCard data={data[1]} /></Link>
-            <Link href="/article" ><ArticleCard data={data[2]} /></Link>
-            <Link href="/article" ><ArticleCard data={data[3]} /></Link>
+            <Link href={`/article/${data[1].id}`} ><ArticleCard data={data[1]} /></Link>
+            <Link href={`/article/${data[2].id}`} ><ArticleCard data={data[2]} /></Link>
+            <Link href={`/article/${data[3].id}`} ><ArticleCard data={data[3]} /></Link>
           </div>
         </div>
       </div>

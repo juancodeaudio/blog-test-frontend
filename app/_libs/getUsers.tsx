@@ -1,4 +1,4 @@
-export async function getUsers(q: object) {
+export default async function getUsers(q?: object) {
 
   const qs = require('qs');
   const query = qs.stringify(

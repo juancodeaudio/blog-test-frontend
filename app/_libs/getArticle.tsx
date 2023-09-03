@@ -1,11 +1,11 @@
-export default async function getArticles(q?: object) {
+export default async function getArticle(id: string, q?: object) {
 
   const qs = require('qs');
   const query = qs.stringify(
     q, { encodeValuesOnly: true, }
   );
 
-  const response = await fetch(`http://127.0.0.1:1337/api/articles?${query}`, {
+  const response = await fetch(`http://127.0.0.1:1337/api/articles/${id}?${query}`, {
     cache: 'no-cache'
   })
 

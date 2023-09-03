@@ -1,5 +1,5 @@
-import { getArticles } from "./_libs/getArticles"
-import { getUsers } from "./_libs/getUsers"
+import getArticles from "./_libs/getArticles"
+import getUsers from "./_libs/getUsers"
 import SuggestionsSection from "./_components/SuggestionsSection"
 import NewestAuthorsSection from "./_components/NewestAuthorsSection"
 import LatestSection from "./_components/LatestSection"

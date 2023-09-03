@@ -59,6 +59,8 @@ export interface FluffyAttributes {
   updatedAt:   Date;
   publishedAt: Date;
   cover:       Cover;
+  author:      Author;
+  category:    Category;
 }
 
 export interface Cover {

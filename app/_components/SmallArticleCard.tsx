@@ -25,7 +25,7 @@ function formatMyDate(value: Date, locale = 'en-US'): string {
 
 const SmallArticleCard: React.FC<Props> = ({ article, userName, userAvatar }) => {
   return (
-    <Link href="/article">
+    <Link href={`/article/${article.id}`}>
       <Card className="w-72 h-96 justify-self-center">
         <CardHeader className="w-full h-1/2 overflow-hidden p-0">
           <Image
