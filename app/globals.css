@@ -3,21 +3,139 @@
 @tailwind utilities;
 
 h1 {
-  @apply text-5xl;
-  @apply font-semibold
+  @apply text-5xl font-semibold;
 }
 
 h2 {
-  @apply text-4xl;
-  @apply font-semibold
+  @apply text-4xl font-semibold;
 }
 
 h4 {
-  @apply text-2xl;
-  @apply font-semibold
+  @apply text-2xl font-semibold;
 }
 
 h5 {
-  @apply text-xl;
-  @apply font-semibold
+  @apply text-xl font-semibold;
+}
+
+/******************************************* 
+  Rich Text Styles
+*******************************************/ 
+
+/* Headers */
+.rich-text h1 {
+  @apply text-4xl font-bold mb-4;
+}
+
+.rich-text h2 {
+  @apply text-3xl font-bold mb-4;
+}
+
+.rich-text h3 {
+  @apply text-2xl font-bold mb-4;
+}
+
+.rich-text h4 {
+  @apply text-xl font-bold mb-4;
+}
+
+.rich-text h5 {
+  @apply text-lg font-bold mb-4;
+}
+
+.rich-text h6 {
+  @apply text-base font-bold mb-4;
+}
+
+/* Horizontal rules */
+.rich-text hr {
+  @apply border-gray-300 my-8;
+}
+
+.rich-text a {
+  @apply text-primary underline;
+}
+
+/* Typographic replacements */
+.rich-text p {
+  @apply mb-4 text-foreground/70;
+}
+
+/* Emphasis */
+.rich-text strong {
+  @apply font-bold;
+}
+
+.rich-text em {
+  @apply italic;
+}
+
+.rich-text del {
+  @apply line-through;
+}
+
+/* Blockquotes */
+.rich-text blockquote {
+  @apply border-l-4 border-gray-400 pl-4 py-2 mb-4;
+}
+
+/* Lists */
+.rich-text ul {
+  @apply list-disc pl-4 mb-4;
+}
+
+.rich-text ol {
+  @apply list-decimal pl-4 mb-4;
+}
+
+.rich-text li {
+  @apply mb-2;
+}
+
+.rich-text li > ul {
+  @apply list-disc pl-4 mb-2;
+}
+
+.rich-text li > ol {
+  @apply list-decimal pl-4 mb-2;
+}
+
+/* Code blocks */
+.rich-text pre {
+  @apply font-mono bg-foreground dark:bg-stone-950 text-background/70 dark:text-foreground/70 rounded p-4  my-6;
+}
+
+.rich-text code {
+  @apply font-mono rounded px-2 py-1;
+}
+
+/* Tables */
+.rich-text table {
+  @apply text-sm w-full border-collapse border-gray-300 my-6;
+}
+
+.rich-text thead {
+  @apply text-background/90 uppercase bg-foreground  dark:text-gray-400;
+}
+
+.rich-text th {
+  @apply text-left py-2 px-4 font-semibold border-b border-gray-300;
+}
+
+.rich-text td {
+  @apply py-2 px-4 border-b bg-foreground/70 border-background text-background;
+}
+
+/* Images */
+.rich-text img {
+  @apply w-full object-cover rounded-xl my-6;
+}
+
+/* Custom containers */
+.rich-text .warning {
+  @apply bg-yellow-100 border-yellow-500 text-yellow-700 px-4 py-2 rounded-lg mb-4;
+}
+
+.rich-text p img {
+  @apply w-2/3 m-auto my-12;
 }

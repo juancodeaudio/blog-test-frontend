@@ -1,7 +1,7 @@
 import { Tab, Tabs } from "@nextui-org/tabs"
-import SectionContainer from "../../_components/SectionContainer"
+import SectionContainer from "@/app/_components/SectionContainer"
 import AuthorBackground from "@/app/_components/AuthorBackground"
-import AuthorCard from "../../_components/AuthorCard"
+import AuthorCard from "@/app/_components/AuthorCard"
 import SmallArticleCard from "@/app/_components/SmallArticleCard"
 
 import getUser from "@/app/_libs/getUser"
@@ -44,7 +44,7 @@ export default async function AuthorPage({params}: Props) {
         <div className="flex flex-col max-w-7xl justify-between m-auto relative">
           <AuthorCard data={userData} />
           <div className="mt-48 h-20">
-            <Tabs
+            {/* <Tabs
               variant="light"
               radius="full"
               size="lg"
@@ -58,7 +58,7 @@ export default async function AuthorPage({params}: Props) {
               <Tab key="articles" title="Articles"/>
               <Tab key="favorites" title="Favorites"/>
               <Tab key="saved" title="Saved"/>
-            </Tabs>
+            </Tabs> */}
           </div>
           <div className="grid grid-cols-4 gap-10">
             {articles.map((article: ArticlesDatum) => (

@@ -171,6 +171,7 @@ export interface FluffyAttributes {
   publishedAt: Date;
   content:     string;
   likes:       number;
+  blocks:      any[];
 }
 
 export interface Avatar {

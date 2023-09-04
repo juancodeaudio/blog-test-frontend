@@ -1,5 +1,6 @@
 import ArticleHeader from "../../_components/ArticleHeader"
 import getArticle from "@/app/_libs/getArticle"
+import Post from "@/app/_components/Post"
 
 import { ArticlesDatum } from "@/app/_types/types"
 
@@ -16,6 +17,12 @@ export default async function AuthorPage({params}: Props) {
       category: true,
       author: {
         populate: ['avatar']
+      },
+      blocks: {
+        populate: '*'
+      },
+      seo: {
+        populate: '*'
       }
     }
   }
@@ -24,7 +31,8 @@ export default async function AuthorPage({params}: Props) {
 
   return (
     <main className="flex flex-col items-center bg-neutral-100 dark:bg-neutral-900">
-      <ArticleHeader data={articleData}  />
+      <ArticleHeader data={articleData} />
+      <Post data={articleData} />
     </main>
   )
 }
