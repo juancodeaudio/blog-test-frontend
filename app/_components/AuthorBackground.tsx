@@ -8,7 +8,7 @@ type Props = {
 
 const AuthorBackground: React.FC<Props> = ({ data }) => {
   return (
-    <div className="absolute inset-0 h-80">
+    <div className="absolute inset-0 h-80 bg-foreground/10">
       <Image
         priority={true}
         src={data.attributes.background.data.attributes.url}

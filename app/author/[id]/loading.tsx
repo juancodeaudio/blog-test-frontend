@@ -22,12 +22,12 @@ const LoadingCard = () => (
         </div>
       </div>
       <div className="flex flex-col h-10 w-full gap-2">
-                <Skeleton className="w-full rounded-full">
-                  <div className="h-4"></div>
-                </Skeleton>
-                <Skeleton className="w-3/5 rounded-full">
-                  <div className="h-4"></div>
-                </Skeleton>
+        <Skeleton className="w-full rounded-full">
+          <div className="h-4"></div>
+        </Skeleton>
+        <Skeleton className="w-3/5 rounded-full">
+          <div className="h-4"></div>
+        </Skeleton>
       </div>
       <div className="flex h-8 w-full justify-between">
         <div className="flex gap-4">

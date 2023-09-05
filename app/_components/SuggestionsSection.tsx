@@ -70,61 +70,63 @@ const SuggestionsSection: React.FC<Props> = ({ data }) => {
             />
           </Link>
           <div className="absolute top-14 left-0 w-[500px]">
-            <Link href={`/article/${data[articleNumber].id}`}>
-              <Card
-                isBlurred
-                className="border-none bg-background/40 dark:bg-default-100/40 backdrop-blur-md h-[300px] z-[999] p-8"
-                shadow="md"
-              >
-                <CardBody className="flex flex-col items-start justify-between p-0">
-                  <Chip color="danger" variant="flat"
-                  classNames={{
-                    base: "h-6",
-                    content: "text-xs",
-                  }}
-                  >{data[articleNumber].attributes.category.data.attributes.name}</Chip>
-                  <h4>{data[articleNumber].attributes.title}</h4>
-                    <User   
-                      name={data[articleNumber].attributes.author.data.attributes.name}
-                      description={formatMyDate(data[articleNumber].attributes.createdAt)}
-                      avatarProps={{
-                        src: `${
-                          data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
-                          ? data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
-                          : data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.url
-                        }`
-                      }}
-                    />
-                </CardBody>
-                  <CardFooter className="flex justify-between p-0 mt-5">
-                    <div className="flex justify-center gap-4">
-                      <Button
-                        variant="light"
-                        size="sm"
-                        radius="full"
-                        color="danger"
-                        className="text-foreground hover:text-danger"
-                        startContent={<HeartIcon />}
-                      >
-                        {data[articleNumber].attributes.likes}
-                      </Button>
-                      <Button
-                        variant="light"
-                        size="sm"
-                        radius="full"
-                        color="success"
-                        className="text-foreground hover:text-success"
-                        startContent={<ChatBubbleLeftEllipsisIcon />}
-                      >
-                        113
-                      </Button>
-                    </div>
-                    <Button isIconOnly radius="full" size="sm" variant="flat">
-                      <BookmarkIcon className="h-5 w-5"/>
+            <Card
+              isBlurred
+              className="border-none bg-background/40 dark:bg-default-100/40 backdrop-blur-md h-[300px] z-[999] p-8"
+              shadow="md"
+            >
+              <CardBody className="flex flex-col items-start justify-between p-0">
+                <Chip color="danger" variant="flat"
+                classNames={{
+                  base: "h-6",
+                  content: "text-xs",
+                }}
+                >{data[articleNumber].attributes.category.data.attributes.name}</Chip>
+                <Link href={`/article/${data[articleNumber].id}`}>
+                  <h4 className="hover:text-foreground/60">{data[articleNumber].attributes.title}</h4>
+                </Link>
+                <Link href={`/author/${data[articleNumber].attributes.author.data.id}`}>
+                  <User   
+                    name={data[articleNumber].attributes.author.data.attributes.name}
+                    description={formatMyDate(data[articleNumber].attributes.createdAt)}
+                    avatarProps={{
+                      src: `${
+                        data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
+                        ? data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.formats?.thumbnail.url
+                        : data[articleNumber].attributes.author.data.attributes.avatar.data.attributes.url
+                      }`
+                    }}
+                  />
+                </Link>
+              </CardBody>
+                <CardFooter className="flex justify-between p-0 mt-5">
+                  <div className="flex justify-center gap-4">
+                    <Button
+                      variant="light"
+                      size="sm"
+                      radius="full"
+                      color="danger"
+                      className="text-foreground hover:text-danger"
+                      startContent={<HeartIcon />}
+                    >
+                      {data[articleNumber].attributes.likes}
                     </Button>
-                  </CardFooter>
+                    <Button
+                      variant="light"
+                      size="sm"
+                      radius="full"
+                      color="success"
+                      className="text-foreground hover:text-success"
+                      startContent={<ChatBubbleLeftEllipsisIcon />}
+                    >
+                      113
+                    </Button>
+                  </div>
+                  <Button isIconOnly radius="full" size="sm" variant="flat">
+                    <BookmarkIcon className="h-5 w-5"/>
+                  </Button>
+                </CardFooter>
               </Card>
-            </Link>
             <div className="pt-8 px-10">
               <Button isIconOnly radius="full" variant="bordered" onClick={getLastArticle} className="mr-4">
                 <ArrowSmallLeftIcon className="h-4 w-4" />
