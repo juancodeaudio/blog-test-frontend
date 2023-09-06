@@ -4,7 +4,7 @@ import { SearchIcon } from "./icons"
 import { Divider } from "@nextui-org/divider"
 import { Listbox, ListboxSection, ListboxItem } from "@nextui-org/listbox"
 import { DocumentTextIcon } from "@heroicons/react/24/solid"
-import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline"
+import { DocumentMagnifyingGlassIcon, ChevronRightIcon } from "@heroicons/react/24/outline"
 import { Avatar } from "@nextui-org/avatar"
 import { Spinner } from "@nextui-org/spinner"
 import { useRouter } from 'next/navigation'
@@ -104,6 +104,8 @@ const SearchModal: React.FC<Props> = ({isOpen, onOpenChange, onClose}) => {
                   key={article.id}
                   description="tech"
                   startContent={<DocumentTextIcon className="w-6 h-6 text-success" />}
+                  endContent={<ChevronRightIcon className="w-6 h-6" />}
+                  className="h-16"
                   onPress={() => router.push(`/article/${article.id}`)}
                 >
                   {article.attributes.title}
@@ -115,6 +117,8 @@ const SearchModal: React.FC<Props> = ({isOpen, onOpenChange, onClose}) => {
                   <ListboxItem
                     key={author.id}
                     startContent={<Avatar src={author.attributes.avatar.data.attributes.url} size="sm" className="mr-1" />}
+                    endContent={<ChevronRightIcon className="w-6 h-6" />}
+                    className="h-16"
                     onPress={() => router.push(`/author/${author.id}`)}
                   >
                     {author.attributes.name}

@@ -18,7 +18,9 @@ const Navbar = () => {
     <NextUINavbar maxWidth="xl" height='80px' className="z-[9999]">
       <NavbarBrand>
         {/* <AcmeLogo /> */}
-        <p className="font-bold text-inherit">ACME</p>
+        <Link href="/">
+          <p className="font-bold text-inherit">ACME</p>
+        </Link>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-12" justify="center">
         <NavbarItem>
@@ -48,7 +50,9 @@ const Navbar = () => {
           <SearchModal isOpen={isOpen} onOpenChange={onOpenChange} onClose={onClose}/>
         </NavbarItem>
         <NavbarItem>
-          <NotificationsDropdown />
+          {
+            isLoggenIn && <NotificationsDropdown />
+          }
         </NavbarItem>
         <NavbarItem>
           {
@@ -56,7 +60,7 @@ const Navbar = () => {
             ? <UserDropdown setIsLoggedIn={setIsLoggedIn} />
             : <>
                 <Button onClick={() => setIsLoggedIn(true)}>Log In</Button>
-                <Button variant="bordered" className="ml-3">Sign Up</Button>
+                <Button onClick={() => setIsLoggedIn(true)} variant="bordered" className="ml-3">Sign Up</Button>
               </>
           }
           
