@@ -1,18 +1,18 @@
 'use client'
-import {  Navbar as NextUINavbar,   NavbarBrand,   NavbarContent,   NavbarItem,   NavbarMenuToggle,  NavbarMenu,  NavbarMenuItem} from "@nextui-org/navbar";
-import {Input} from "@nextui-org/input";
+import {  Navbar as NextUINavbar,   NavbarBrand,   NavbarContent,   NavbarItem } from "@nextui-org/navbar";
 import { useDisclosure } from "@nextui-org/use-disclosure";
 import SearchModal from "./SearchModal";
 import Link from "next/link";
 
-import { SearchIcon } from "./icons";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import UserDropdown from "./UserDropdown";
 import NotificationsDropdown from "./NotificationsDropdown";
 import { Button } from "@nextui-org/react";
+import { useState } from "react";
 
 const Navbar = () => {
   const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
+  const [isLoggenIn, setIsLoggedIn] = useState(false)
 
   return (
     <NextUINavbar maxWidth="xl" height='80px' className="z-[9999]">
@@ -51,7 +51,15 @@ const Navbar = () => {
           <NotificationsDropdown />
         </NavbarItem>
         <NavbarItem>
-          <UserDropdown />
+          {
+            isLoggenIn
+            ? <UserDropdown setIsLoggedIn={setIsLoggedIn} />
+            : <>
+                <Button onClick={() => setIsLoggedIn(true)}>Log In</Button>
+                <Button variant="bordered" className="ml-3">Sign Up</Button>
+              </>
+          }
+          
         </NavbarItem>
       </NavbarContent>
     </NextUINavbar>

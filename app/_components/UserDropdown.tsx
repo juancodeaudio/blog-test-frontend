@@ -5,7 +5,11 @@ import {Link} from "@nextui-org/link";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { UserCircleIcon, ClipboardIcon, BookmarkIcon, ArrowRightOnRectangleIcon, MoonIcon, Cog6ToothIcon } from "@heroicons/react/24/outline";
 
-const UserDropdown = () => {
+type Props = {
+  setIsLoggedIn: any
+}
+
+const UserDropdown = (props: Props) => {
   return (
     <Dropdown placement="bottom-end" offset={20}>
       <DropdownTrigger>
@@ -73,6 +77,7 @@ const UserDropdown = () => {
             color="danger"
             className="text-danger"
             startContent={<ArrowRightOnRectangleIcon className="h-6 w-6" />}
+            onPress={() => props.setIsLoggedIn(false)}
           >
             Log Out
           </DropdownItem>
