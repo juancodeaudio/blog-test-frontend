@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const filteredAuthors = await getUsers({
     filters: {
       name: {
-        $contains: query,
+        $containsi: query,
       },
     },
     populate: {

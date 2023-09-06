@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const filteredArticles = await getArticles({
     filters: {
       title: {
-        $contains: query,
+        $containsi: query,
       },
     },
   });
