@@ -12,7 +12,7 @@ const UserDropdown = () => {
         <Avatar
           isBordered
           as="button"
-          className="transition-transform"
+          className="transition-transform ml-4"
           src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
         />
       </DropdownTrigger>

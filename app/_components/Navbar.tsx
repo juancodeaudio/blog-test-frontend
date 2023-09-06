@@ -1,13 +1,19 @@
 'use client'
 import {  Navbar as NextUINavbar,   NavbarBrand,   NavbarContent,   NavbarItem,   NavbarMenuToggle,  NavbarMenu,  NavbarMenuItem} from "@nextui-org/navbar";
 import {Input} from "@nextui-org/input";
+import { useDisclosure } from "@nextui-org/use-disclosure";
+import SearchModal from "./SearchModal";
 import Link from "next/link";
 
 import { SearchIcon } from "./icons";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import UserDropdown from "./UserDropdown";
 import NotificationsDropdown from "./NotificationsDropdown";
+import { Button } from "@nextui-org/react";
 
 const Navbar = () => {
+  const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
+
   return (
     <NextUINavbar maxWidth="xl" height='80px' className="z-[9999]">
       <NavbarBrand>
@@ -38,18 +44,8 @@ const Navbar = () => {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Input
-            classNames={{
-              base: "max-w-full sm:max-w-[10rem] h-10",
-              mainWrapper: "h-full",
-              input: "text-small",
-              inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-            }}
-            placeholder="Type to search..."
-            size="sm"
-            startContent={<SearchIcon size={18} />}
-            type="search"
-          />
+          <Button isIconOnly radius="full" size="lg" variant="light" onPress={onOpen} startContent={<MagnifyingGlassIcon className="h-5 w-5" />}></Button>
+          <SearchModal isOpen={isOpen} onOpenChange={onOpenChange} onClose={onClose}/>
         </NavbarItem>
         <NavbarItem>
           <NotificationsDropdown />

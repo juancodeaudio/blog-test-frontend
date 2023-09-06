@@ -72,7 +72,7 @@ const SuggestionsSection: React.FC<Props> = ({ data }) => {
           <div className="absolute top-14 left-0 w-[500px]">
             <Card
               isBlurred
-              className="border-none bg-background/40 dark:bg-default-100/40 backdrop-blur-md h-[300px] z-[999] p-8"
+              className="border-none bg-background/40 dark:bg-default-100/40 backdrop-blur-md h-[300px] z-[10] p-8"
               shadow="md"
             >
               <CardBody className="flex flex-col items-start justify-between p-0">
